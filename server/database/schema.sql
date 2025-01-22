@@ -23,5 +23,7 @@ CREATE TABLE candidate (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cv VARCHAR(100),
   photo VARCHAR(100),
+  user_id INT NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES user(id),
   is_disabled BOOLEAN  NOT NULL
 );

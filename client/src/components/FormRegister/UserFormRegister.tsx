@@ -1,21 +1,16 @@
 import { useForm } from "react-hook-form";
-import type { UserFormData } from "../lib/types";
+import type { UserFormData } from "../../lib/types";
 
-type UserFormRegisterType = {
-  onSubmit: (data: UserFormData) => void;
-};
-
-function UserFormRegister({ onSubmit }: UserFormRegisterType) {
+function UserFormRegister() {
   const {
     register,
-    handleSubmit,
     watch,
     formState: { errors },
   } = useForm<UserFormData>();
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form className="space-y-6">
         <section className="flex justify-center gap-6">
           <label htmlFor="lastName">
             Nom :
@@ -261,12 +256,6 @@ function UserFormRegister({ onSubmit }: UserFormRegisterType) {
             )}
           </label>
         </section>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Envoyer le formulaire
-        </button>
       </form>
     </>
   );

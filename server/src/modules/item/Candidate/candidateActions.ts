@@ -5,6 +5,7 @@ const add: RequestHandler = async (req, res, next) => {
   try {
     const newCandidate = {
       is_disabled: req.body.is_disabled,
+      user_id: req.body.user_id,
     };
     const insertId = await CandidateRepository.create(newCandidate);
 

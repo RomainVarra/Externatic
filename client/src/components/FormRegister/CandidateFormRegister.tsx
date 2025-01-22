@@ -1,15 +1,11 @@
 import { useForm } from "react-hook-form";
-import type { CandidateFormData } from "../lib/types";
+import type { CandidateFormData } from "../../lib/types";
 
-type CandidateFormRegisterType = {
-  onSubmit: (data: CandidateFormData) => void;
-};
-
-function CandidateFormRegister({ onSubmit }: CandidateFormRegisterType) {
-  const { register, handleSubmit } = useForm<CandidateFormData>();
+function CandidateFormRegister() {
+  const { register } = useForm<CandidateFormData>();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <article>
         <label htmlFor="is_disabled">
           Souffrez-vous d'un handicap ?
@@ -39,14 +35,6 @@ function CandidateFormRegister({ onSubmit }: CandidateFormRegisterType) {
           type="button"
         >
           Ajouter un CV
-        </button>
-      </article>
-      <article>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Envoyer le formulaire
         </button>
       </article>
     </form>
