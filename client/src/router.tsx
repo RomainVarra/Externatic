@@ -1,12 +1,13 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 
-import LoginCandidatePage from "./pages/CandidateLoginPage";
-import CompanyLoginPage from "./pages/CompanyLoginPage";
+import AccountCandidatePages from "./pages/AccountPages/AccountCandidatePages";
 import HomePage from "./pages/HomePage";
+import LoginCandidatePage from "./pages/LoginPages/CandidateLoginPage";
+import CompanyLoginPage from "./pages/LoginPages/CompanyLoginPage";
 import OffersPage from "./pages/OffersPage";
-import UserCandidateForm from "./pages/UserCandidateFormPage";
-import UserCompanyForm from "./pages/UserCompanyFormPage";
+import UserCandidateForm from "./pages/UserFormPages/UserCandidateFormPage";
+import UserCompanyForm from "./pages/UserFormPages/UserCompanyFormPage";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/login/candidate",
         element: <LoginCandidatePage />,
+      },
+      {
+        path: "/account/candidate/:id",
+        element: <AccountCandidatePages />,
       },
     ],
   },

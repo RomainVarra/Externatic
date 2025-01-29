@@ -1,27 +1,28 @@
 import { FaUsers } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Login from "../components/userForm/Login";
-import type { loginCompanyType } from "../lib/userForm.definitions";
+import Login from "../../components/userForm/Login";
+import type { loginCompanyType } from "../../lib/userForm.definitions";
 
-function CompanyLoginPage() {
+function LoginCandidatePage() {
   const navigate = useNavigate();
 
-  const handleCompanyLogin = async (loginDataCompany: loginCompanyType) => {
+  const handleCandidateLogin = async (loginDataCandidate: loginCompanyType) => {
     try {
-      const loginCompany = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/login/company`,
+      const loginCandidate = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/login/candidate`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(loginDataCompany),
+          body: JSON.stringify(loginDataCandidate),
         },
       );
-      if (loginCompany.ok) {
+      if (loginCandidate.ok) {
         toast.success("Vous êtes bien connecté !");
-        navigate("/");
+
+        //  navigate(`/account/candidate/${loginDataCandidate.insertID}`);
       } else {
         toast.error(
           "Un problème est survenu lors de votre connexion ! Veuillez réessayer",
@@ -45,12 +46,12 @@ function CompanyLoginPage() {
               Connectez-vous
             </h2>
             <p className="text-3xl font-extrabold text-white mt-4 mb-5">
-              (compte entreprise)
+              (compte candidat)
             </p>
             <p className="mt-2 font-bold text-lg text-white">S'identifier</p>
           </div>
 
-          <Login onSubmit={handleCompanyLogin} />
+          <Login onSubmit={handleCandidateLogin} />
         </article>
 
         <article className="flex flex-col justify-center items-center ">
@@ -59,7 +60,7 @@ function CompanyLoginPage() {
           </p>
           <button
             type="button"
-            onClick={() => navigate("/signup/company")}
+            onClick={() => navigate("/signup/candidate")}
             className="mt-4 mb-8 bg-black hover:bg-gray-600 rounded-md text-white font-bold py-2 px-4 w-48"
           >
             Créer un compte
@@ -70,4 +71,4 @@ function CompanyLoginPage() {
   );
 }
 
-export default CompanyLoginPage;
+export default LoginCandidatePage;
