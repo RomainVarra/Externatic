@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
 import { encodeJWT } from "../../helpers/jwt.helpers";
 
-export const login: RequestHandler = async (req, res) => {
+export const login: RequestHandler = async (req, res, next) => {
   const user = req.body;
   const token = await encodeJWT(user);
 
@@ -13,4 +13,6 @@ export const login: RequestHandler = async (req, res) => {
       maxAge: 86400,
     })
     .json();
+
+  next();
 };

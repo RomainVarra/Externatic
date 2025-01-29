@@ -18,6 +18,7 @@ const add: RequestHandler = async (req, res, next) => {
       role_id: req.body.role_id,
     };
     const insertId = await userRepository.create(newUser);
+    req.body.insertId;
 
     res.status(201).json({ insertId });
   } catch (err) {

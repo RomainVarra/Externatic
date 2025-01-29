@@ -9,3 +9,7 @@ export const encodeJWT = async (payload: UserType) => {
     expiresIn: "24h",
   });
 };
+// jwt.encode()
+// récupérer le cookie
+// décoder le tooken
+// remonter au info

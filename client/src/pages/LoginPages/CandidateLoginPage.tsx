@@ -9,25 +9,36 @@ function LoginCandidatePage() {
 
   const handleCandidateLogin = async (loginDataCandidate: loginCompanyType) => {
     try {
-      const loginCandidate = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/login/candidate`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(loginDataCandidate),
+      // const loginCandidate =
+      await fetch(`${import.meta.env.VITE_API_URL}/api/login/candidate`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
-      if (loginCandidate.ok) {
-        toast.success("Vous êtes bien connecté !");
-
-        //  navigate(`/account/candidate/${loginDataCandidate.insertID}`);
-      } else {
+        body: JSON.stringify(loginDataCandidate),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          navigate(`/account/candidate/${data.insertId}`);
+        });
+      /*
+      if (!loginCandidate.ok) {
         toast.error(
           "Un problème est survenu lors de votre connexion ! Veuillez réessayer",
         );
+        return;
       }
+      const data = await loginCandidate.json();
+      console.log(data);
+      if (data.insertId) {
+        toast.success("Vous êtes bien connecté !");
+        navigate(`/account/candidate/${data.insertId}`);
+      } else {
+        toast.error(
+      "Un problème est survenu lors de votre connexion ! Veuillez réessayer",
+    );
+  }
+  */
     } catch (err) {
       console.info(err);
     }

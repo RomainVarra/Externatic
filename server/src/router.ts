@@ -55,6 +55,7 @@ router.post(
   comparePassword,
   checkCandidateRole,
   login,
+  userActions.add,
 );
 /* ************************************************************************* */
 router.get("/api/offersPage", offersListActions.browse);
