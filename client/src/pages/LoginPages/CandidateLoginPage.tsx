@@ -17,10 +17,8 @@ function LoginCandidatePage() {
         },
         body: JSON.stringify(loginDataCandidate),
       })
-        .then((response) => response.json())
-        .then((data) => {
-          navigate(`/account/candidate/${data.insertId}`);
-        });
+
+        }
       /*
       if (!loginCandidate.ok) {
         toast.error(
