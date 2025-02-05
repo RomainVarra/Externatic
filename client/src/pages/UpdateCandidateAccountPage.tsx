@@ -1,8 +1,11 @@
 import { toast } from "react-toastify";
 import UpdateCandidateAccount from "../components/CandidateAccount/UpdateCandidateAccount";
 import type { CandidateFormData } from "../lib/userForm.definitions";
+import { useAuth } from "../context/AuthContext";
 
 function CandidateAccountPage() {
+  const { userId } = useAuth();
+  console.log(userId);
   const handleUploadCandidateInformation = async (data: CandidateFormData) => {
     try {
       const formData = new FormData();

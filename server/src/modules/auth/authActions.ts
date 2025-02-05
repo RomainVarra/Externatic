@@ -6,7 +6,7 @@ import UsersRepository from "../item/user/UsersRepository";
 export const login: RequestHandler = async (req, res) => {
   const user = await UsersRepository.readByEmail(req.body.email);
 
-  const userId = [user.id];
+  const userId = user.id;
   console.log(user.id);
   const token = await encodeJWT(user);
 
@@ -17,7 +17,7 @@ export const login: RequestHandler = async (req, res) => {
       secure: false,
       maxAge: 86400,
     })
-    .json({ token, userId: userId });
+    .json({ userId: userId });
 };
 
 export const verifyToken: RequestHandler = (req, res, next) => {

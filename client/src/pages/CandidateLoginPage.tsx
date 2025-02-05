@@ -23,7 +23,7 @@ function LoginCandidatePage() {
       );
       if (loginCandidate.ok) {
         const data = await loginCandidate.json();
-        setUserId(data.user);
+        setUserId(data.userId);
         toast.success("Vous êtes bien connecté !");
         navigate("/account/candidate");
       } else {

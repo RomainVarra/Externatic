@@ -13,9 +13,11 @@ const uploadFiles: RequestHandler = async (req, res, next) => {
     const newCandidate = {
       cv: cvPath,
       photo: photoPath,
-      user_id: req.body.user_id,
+      user_id: Number(req.body.user_id),
       is_disabled: req.body.is_disabled,
     };
+    console.log(newCandidate);
+
     const insertId = await CandidateRepository.create(newCandidate);
 
     res.status(201).json();

@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import type { CandidateFormData } from "../../lib/userForm.definitions";
+import { useNavigate } from "react-router-dom";
 
 type CandidateFormType = {
   onSubmit: (data: CandidateFormData) => void;
@@ -11,6 +12,9 @@ function UpdateCandidateAccount({ onSubmit }: CandidateFormType) {
     handleSubmit,
     formState: { errors },
   } = useForm<CandidateFormData>();
+
+  const navigate = useNavigate();
+  const handleClick = () => navigate("/account/candidate");
 
   return (
     <section className="flex justify-center">
@@ -84,6 +88,7 @@ function UpdateCandidateAccount({ onSubmit }: CandidateFormType) {
         <button
           type="submit"
           className="px-4 py-2 rounded mt-5 btn-submit hover:bg-orange-600"
+          onClick={handleClick}
         >
           Mettre à jour mon profil
         </button>

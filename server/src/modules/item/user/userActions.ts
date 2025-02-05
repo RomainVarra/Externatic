@@ -27,7 +27,8 @@ const add: RequestHandler = async (req, res, next) => {
 
 const read: RequestHandler = async (req, res, next) => {
   try {
-    const id = Number(req.params.id);
+    const id = Number(req.params.userId);
+    console.log(id);
     const user = await userRepository.read(id);
 
     if (user == null) {

@@ -83,6 +83,3 @@ CREATE TABLE offer_tag(
   tag_id INT NOT NULL,
   FOREIGN KEY(tag_id) REFERENCES tag(id)
 );
-
-
-
