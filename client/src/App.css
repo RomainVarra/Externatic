@@ -3,6 +3,8 @@
 :root {
   --primary-color: #851342;
   --secondary-color: #ca2060;
+  --dark-color: #1e1e1e;
+  --accent-color: #ff862f;
 }
 
 body {
@@ -13,7 +15,32 @@ body {
   background-color: var(--secondary-color);
   color: white;
 }
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+.btn-accent {
+  background-color: var(--accent-color);
+  color: black;
+}
 
 .section-primary {
   background-color: var(--primary-color);
+}
+
+.section-dark {
+  background-color: var(--dark-color);
+}
+
+.border-primary-color {
+  border: 2px solid var(--primary-color);
+}
+
+.link-primary-color {
+  color: var(--primary-color);
+}
+
+.btn-submit {
+  background-color: black;
+  color: white;
 }

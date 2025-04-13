@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import mainImage from "../assets/images/Accueil.png";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const handleCandidateSignUpClick = () => navigate("/signup/candidate");
+  const handleCompanySignUpClick = () => navigate("/signup/company");
+
   return (
     <section id="connexion">
       <div className="ml-5 mt-5 mb-0">
@@ -17,7 +22,7 @@ const SignUp = () => {
         <div className="flex flex-col lg:flex-row lg:max-w-15xl mx-auto py-2 px-4 sm:py-2 sm:px-6 lg:px-1">
           <div className="mt-10 lg:mt-0 lg:w-7/12">
             <img
-              className="w-full h-[600px] lg:max-w-[95%]"
+              className="w-full h-auto lg:max-w-[95%] lg:h-[600px]"
               src={mainImage}
               alt="Externatic background"
             />
@@ -45,6 +50,7 @@ const SignUp = () => {
         <button
           type="button"
           className="flex flex-col items-center px-6 py-2 text-xl font-medium rounded-md btn-secondary sm:px-20 sm:py-4"
+          onClick={handleCandidateSignUpClick}
         >
           <span>Candidat</span>
           <span>Inscrivez-vous</span>
@@ -52,6 +58,7 @@ const SignUp = () => {
         <button
           type="button"
           className="flex flex-col items-center px-6 py-2 text-xl font-medium rounded-md btn-secondary sm:px-20 sm:py-4"
+          onClick={handleCompanySignUpClick}
         >
           <span>Entreprise</span>
           <span>Inscrivez-vous</span>

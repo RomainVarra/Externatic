@@ -21,7 +21,7 @@ const About = () => {
   return (
     <main className="flex-grow">
       <section
-        id="qui-sommes-nous"
+        id="#qui-sommes-nous"
         className="py-10 m-10 rounded-md section-primary"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
